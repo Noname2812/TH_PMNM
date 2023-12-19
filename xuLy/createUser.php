@@ -1,10 +1,10 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
-    $password = isset($_POST['password']) ? $_POST['password'] : '';
+    $user_name = isset($_POST['username']) ? $_POST['username'] : '';
+    $pass_word = isset($_POST['password']) ? $_POST['password'] : '';
     $confirmPassword = isset($_POST['confirmPassword']) ? $_POST['confirmPassword'] : '';
     $mail = isset($_POST['mail']) ? $_POST['mail'] : '';
-    if ($password !== $confirmPassword) {
+    if ($pass_word !== $confirmPassword) {
         $error = "Passwords do not match !";
         header('Location: ../login.php?error=2');
         exit();
@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         require_once "../config.php";
         $pdo = new PDO("mysql:host=$servername;dbname=$dbname", "$username", "$password");
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $sql="insert into user(roleid,username,matkhau,email) values('kh','$username','$password','$mail')";
+        $sql="insert into user(roleid,username,matkhau,email) values('kh','$user_name','$pass_word','$mail')";
         try{
             $pdo->query($sql);
             header("Location: ../login.php?error=3");
