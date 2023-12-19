@@ -1,4 +1,24 @@
-
+<?php
+ session_start();
+ $checkout=0;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['id_item_update']) && isset($_POST['quantity'])) {
+        include_once "./utils.php";
+        $id = $_POST['id_item_update'];
+        $quantity = $_POST['quantity'];
+        if($quantity > 0){
+            updateCart($quantity,$id);
+        }
+    } elseif (isset($_POST['id_item_delete'])) {
+        include_once "./utils.php";
+        $id = $_POST['id_item_delete'];
+        deleteItemInCart($id);
+    }
+}
+if(isset($_GET['checkout'])){
+    $checkout = $_GET['checkout'];
+}
+ ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
