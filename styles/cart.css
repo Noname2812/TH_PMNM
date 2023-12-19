@@ -1,0 +1,105 @@
+#isEmty h2{
+    text-align: center;
+}
+#isEmty h6{
+    font-size: 1rem;
+}
+#isEmty{
+    margin-bottom: 130px;
+}
+#isEmty, #page-checkout h6{
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+#isEmty button{
+    display: inline-block;
+    margin-top: 1.2rem;
+    margin-right: 1.4rem;
+    width: 175px;
+    height: 35px;
+    background-color: red;
+    border-color: transparent;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+}
+#isEmty button a{
+    color: white;
+    font-size: 1rem;
+}
+section#page-checkout{
+    display: none;
+}
+div#checkout-bill{
+    width: 360px;
+    height: 190px;
+    background-color: rgb(253, 228, 228);
+    padding: 30px;
+}
+div#checkout-bill h4{
+    padding-top: 30px;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+form h4{
+    padding-bottom: 30px;
+}
+form input{
+    display: block;
+    width: 735px;
+    height: 40px;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid black;
+    margin-bottom: 1.2rem;
+    padding-left: 1.2rem;
+    font-size: 1rem;
+}
+form button{
+    display: block;
+    width: 105px;
+    height: 35px;
+    background-color: red;
+    color: white;
+    border-color: transparent;
+}
+/* table cart */
+table{
+    border-spacing: 2px;
+    border-color: #dee2e6;
+    width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+}
+table>:not(caption)>*{
+    border-width: 1px;
+}
+tbody, td, th, thead, tr{
+    border: 0 solid;
+    border-color: inherit;
+}
+thead{
+    border-bottom: 1px solid black;
+}
+table th{
+    text-align: center;
+    padding: 0.5rem;
+    border-left: 1px solid #dee2e6;
+}
+tr th:nth-child(1){
+    width: 6%;
+}
+tr th:nth-child(2){
+    width: 48%;
+}
+tr th:nth-child(3){
+    width: 12%;
+}
+tr th:nth-child(4){
+    width: 18%;
+}
+tr th:nth-child(1) img{
+    width: 63px;
+    height: 63px;
+}

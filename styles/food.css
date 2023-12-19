@@ -1,0 +1,72 @@
+h1 {
+  color: white;
+}
+.flexNoSpace {
+  display: flex;
+}
+section#banner {
+  overflow: hidden;
+  height: 300px;
+  background-image: url(../images/banner.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+}
+section#banner h1 {
+  line-height: 300px;
+}
+.main-menu-foods {
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+.main-menu-foods > div {
+  width: 25%;
+  margin: 0.56rem 0;
+  padding: 0 10px;
+}
+div#find-foods > input {
+  width: 550px;
+  height: 45px;
+  border: 0.5px solid black;
+  border-radius: 10px;
+  padding-left: 10px;
+  z-index: 0;
+}
+select#sort {
+  display: inline-block;
+  width: 270px;
+  border-radius: 5px;
+  padding: 10px;
+}
+div#find-foods > button {
+  width: 24px;
+  height: 24px;
+  background-image: url(./images/icons/searching-magnifying-glass.png);
+  background-repeat: no-repeat;
+  top: 10px;
+  left: 500px;
+  border: transparent;
+  background-color: transparent;
+  z-index: 0;
+}
+ul#controls {
+  display: flex;
+  justify-content: center;
+}
+ul#controls > li {
+  margin: 0 0.56rem;
+  width: 68px;
+  height: 44px;
+  text-align: center;
+  background-color: #212245;
+  border-radius: 5px;
+  color: white;
+  line-height: 44px;
+  cursor: pointer;
+}
+ul#controls > li:hover {
+  background-color: red;
+}
+.hidden {
+  display: none;
+}
