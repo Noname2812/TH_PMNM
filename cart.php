@@ -6,6 +6,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         include_once "./utils.php";
         $id = $_POST['id_item_update'];
         $quantity = $_POST['quantity'];
+        if($quantity > 99){
+            $quantity = 99;
+        }
         if($quantity > 0){
             updateCart($quantity,$id);
         }
