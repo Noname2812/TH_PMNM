@@ -12,6 +12,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $product_description = mysqli_real_escape_string($conn, $_POST['product_description']);
         $product_image = ""; 
         $product_category = mysqli_real_escape_string($conn, $_POST['product_category']);
+        if($product_price < 1){
+            header("Location: ../dashboard.php?page=products&error=1");
+            exit;
+        }
         if (isset($_FILES["product_image"])) {
             $image = $_FILES["product_image"];
             $imageName = $image["name"];
