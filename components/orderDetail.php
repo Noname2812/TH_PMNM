@@ -1,3 +1,29 @@
+<?php
+require_once "./config.php";
+$pdo = new PDO("mysql:host=$servername;dbname=$dbname", "$username", "$password");
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$products = array();
+$sum =0;
+$order = array();
+if(isset($_GET['id'])){
+    $idOrder = $_GET['id'];
+    $sql="select * from hoadon where mahd = '$idOrder'";
+    $re=$pdo->query($sql);
+    $data=$re->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($data as $key => $value){
+        $order = $value;
+    }
+    $sql="select * from chitiethd where mahd = '$idOrder'";
+    $re=$pdo->query($sql);
+    $data=$re->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($data as $key => $value){
+        array_push($products,$value);
+    }
+}
+if(isset($_GET['sum'])){
+    $sum=$_GET['sum']+30;
+}
+ ?>
 <div style="padding:40px;">
     <h3>Bạn đã thanh toán thành công</h3>
     <h2>Chi tiết hóa đơn</h2>
