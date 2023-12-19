@@ -1,4 +1,19 @@
 
+<?php
+session_start();
+if (isset($_SESSION['username']) && $_SESSION['username'] != null) {
+    if (isset($_SESSION['admin']) && $_SESSION['admin'] == 'admin') {
+        header("Location: ./dashboard.php");
+        exit;
+    } 
+}
+if(isset($_REQUEST['logout'])){
+  $_SESSION["admin"] = null;
+  $_SESSION["username"] = null;
+  header("Location: ./login.php");
+  exit();
+}
+ ?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
