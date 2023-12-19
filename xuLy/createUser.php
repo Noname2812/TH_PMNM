@@ -4,7 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = isset($_POST['password']) ? $_POST['password'] : '';
     $confirmPassword = isset($_POST['confirmPassword']) ? $_POST['confirmPassword'] : '';
     $mail = isset($_POST['mail']) ? $_POST['mail'] : '';
-    if ($pass_word !== $confirmPassword) {
+    if ($password !== $confirmPassword) {
         $error = "Passwords do not match !";
         header('Location: ../login.php?error=2');
         exit();
