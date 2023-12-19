@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <header class="bg-white shadow">
         <div class="flex text-center justify-between p-4 border-b">
           <div class="pl-16">
-            <h2 class="text-xl font-semibold">Welcome </h2>
+            <h2 class="text-xl font-semibold">Welcome <?php if(isset($_SESSION['admin'])) {echo $_SESSION['admin'];}?></h2>
           </div>
           <form action='dashboard.php' method='post'>
           <input type='hidden' name='logout' value='logout'/>
@@ -75,6 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
         <div class="container mx-auto p-6 flex items-center justify-center" id="dashboardContent">
         <?php 
+        if(isset($_SESSION["admin"])){
           switch($page){
             case "products": 
               include "./xuLy/getProducts.php";
@@ -88,13 +89,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             case "updateProduct":
               require "./components/updateProduct.php";
               break;
-            case "updateUser":
-              require "./components/updateUser.php";
-              break;
-            case "updateCategory":
-              require "./components/updateCategory.php";
-              break;
+              case "updateUser":
+                require "./components/updateUser.php";
+                break;
+                case "updateCategory":
+                  require "./components/updateCategory.php";
+                  break;
           }
+        }
+        else{
+          header("Location: ./login.php");
+          exit();
+        }
         ?>
         </div>
       </main>
