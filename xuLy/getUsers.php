@@ -27,7 +27,7 @@
             <input class="w-full " type="text" name="user_phone">    
         </div>
         <div class="w-3/12 p-2 flex items-center justify-center">
-            <button type="submit" class="p-2 bg-green-600 text-white">Add Product</button>
+            <button type="submit" class="p-2 bg-green-600 text-white">Add User</button>
         </div> 
 </form>
 <?php

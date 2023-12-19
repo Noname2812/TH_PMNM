@@ -15,7 +15,7 @@
             <input class="w-full" type="file" name="category_image" required>
         </div>
         <div class="w-3/12 p-2 flex items-center justify-center">
-            <button type="submit" class="p-2 bg-green-600 text-white">Add Product</button>
+            <button type="submit" class="p-2 bg-green-600 text-white">Add Category</button>
         </div> 
 </form>
 <?php
