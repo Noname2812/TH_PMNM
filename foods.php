@@ -1,4 +1,47 @@
-
+<?php
+    session_start();
+    $choice = "default";
+    $keySearch = "";
+    $products = array();
+    require_once "./config.php";
+    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", "$username", "$password");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql="select * from sanpham";
+    if (isset($_POST['keySearch'])) {
+        $keySearch = $_POST['keySearch'];
+        if(strlen($keySearch) > 1){
+            $sql=$sql . " where tensp like '%$keySearch%'";
+        }
+    }
+    if(isset($_REQUEST['sortItems'])){
+        $choice = $_REQUEST['sortItems'];
+        switch($choice){
+            case 'default':
+                break;
+            case 'a-z':
+                $sql= $sql . " order by tensp desc";
+                break;
+            case 'z-a':
+                $sql=$sql ." order by tensp asc";
+                break;
+            case 'desc':
+                $sql=$sql ." order by gia desc";
+                break;
+            case 'asc':
+                $sql= $sql ." order by gia asc";
+                break;
+        }     
+    }
+    if(isset($_POST['category_id'])){
+        $sql = "select * from sanpham where maloai = '{$_POST['category_id']}'";
+    }
+    $re=$pdo->query($sql);
+    $data=$re->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($data as $key => $value){
+        array_push($products,$value);
+    }
+    $totalPage = ceil(count($products)/12);
+ ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
