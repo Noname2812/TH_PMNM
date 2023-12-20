@@ -31,7 +31,7 @@ if(isset($_REQUEST['logout'])){
     <section id="hero">
       <div class="container flex">
         <div>
-          <h3>Easy way to make an order</h3>
+          <h3>Easy way to make an order------nhanhmoi</h3>
           <h1>
             <span>HURRY?</span> Just wait <br />
             food at <span> your door</span>
